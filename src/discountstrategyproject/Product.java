@@ -44,4 +44,10 @@ public class Product {
     public final double getDiscountAmount(){
         return discountAmount = discount.getDiscountAmount();        
     }
+
+    @Override
+    public String toString() {
+        return "Product{" + "productName=" + productName + ", productId=" + productId + ", productRetailPrice=" + productRetailPrice + ", discount=" + discount + '}';
+    }
+    
 }

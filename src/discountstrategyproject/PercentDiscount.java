@@ -3,12 +3,11 @@ package discountstrategyproject;
 
 public class PercentDiscount implements DiscountStrategy{
     private double discountRate = 0.20;
-    private double discountAmount;
+    private double discountAmount = 0;
 
-    public PercentDiscount(final double price, final int quantity) {
-        discountAmount=(price*discountRate)*quantity;
-    }  
-    
+    public PercentDiscount(double productRetailPrice, double discountRate ) {
+        this.discountAmount = discountRate;
+    }
 
     @Override
     public final double getDiscountAmount() {
@@ -22,7 +21,5 @@ public class PercentDiscount implements DiscountStrategy{
 
     @Override
     public final void setDiscountRate() {
-        
     }
-    
 }

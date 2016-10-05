@@ -2,23 +2,19 @@
 package discountstrategyproject;
 
 public class NoDiscount implements DiscountStrategy{
-    private double discountRate = 0;
-    private double discountAmount = 0;
+    private final static double NO_DISCOUNT = 0;
 
-    public NoDiscount(final double price, final int quantity) {
-        discountAmount=(price*discountRate)*quantity;
+    public NoDiscount() {
     }
-    
-    
     
     @Override
     public final double getDiscountAmount() {
-        return discountAmount = 0;
+        return NO_DISCOUNT;
     }
 
     @Override
     public final double getDiscountRate() {
-        return discountRate=0;    
+        return NO_DISCOUNT;
     }
 
     @Override

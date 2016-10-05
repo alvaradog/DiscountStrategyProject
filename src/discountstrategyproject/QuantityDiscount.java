@@ -4,18 +4,15 @@ package discountstrategyproject;
 public class QuantityDiscount implements DiscountStrategy{
     private double discountRate = 0.15;
     private double discountAmount= 0;
+    private int minQuanitity=1;
 
-    public QuantityDiscount(final double price, final int quantity) {
-        if (quantity >= 5 ){
-            discountRate=0.15;
-            discountAmount=(price*discountRate)*quantity;
-        } else{
-            discountRate=0;
-            discountAmount=(price*discountRate)*quantity;
-        }
+    public QuantityDiscount(double productRetailPrice, int minQuantity,
+            double discountRate) {
+        this.discountAmount = discountRate;
+        this.minQuanitity = minQuantity;
     }
     @Override
-    public double getDiscountAmount() {
+    public final double getDiscountAmount() {
     return discountAmount;
     }
 
