@@ -41,8 +41,8 @@ public class Product {
         this.productRetailPrice = productRetailPrice;
     }
     
-    public final double getDiscountAmount(){
-        return discountAmount = discount.getDiscountAmount();        
+    public final double getDiscountAmount(int qty){
+        return discountAmount = discount.getDiscountAmount(productRetailPrice, qty  );        
     }
 
     @Override

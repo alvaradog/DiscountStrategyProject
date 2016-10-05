@@ -1,20 +1,20 @@
 
 package discountstrategyproject;
 
-class Register {
-    OutputStrategy output;
-    Receipt receipt;
+public class Register {
+    private OutputStrategy output;
+    private Receipt receipt;
 
-    void createNewPurchase(String custId,PersistenceStrategy db,OutputStrategy output) {
+    public final void createNewPurchase(String custId,PersistenceStrategy db,OutputStrategy output) {
         receipt = new Receipt (custId, db);
         this.output = output;
     }
 
-    void addProductToPurchase(String productId,int quantity) {
+    public final void addProductToPurchase(String productId,int quantity) {
         receipt.addLineItem(productId, quantity);
     }
 
-    void endPurchase() {
+    public final void endPurchase() {
     }
     
 }

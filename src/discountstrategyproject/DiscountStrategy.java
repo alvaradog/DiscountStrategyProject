@@ -3,7 +3,7 @@ package discountstrategyproject;
 
 public interface DiscountStrategy {
     
-    public double getDiscountAmount();
+    public abstract double getDiscountAmount(double productRetailPrice, int qty);
     public double getDiscountRate();
     public void setDiscountRate();
     

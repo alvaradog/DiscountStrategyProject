@@ -6,14 +6,19 @@ public class QuantityDiscount implements DiscountStrategy{
     private double discountAmount= 0;
     private int minQuanitity=1;
 
-    public QuantityDiscount(double productRetailPrice, int minQuantity,
+    public QuantityDiscount(int minQuantity,
             double discountRate) {
         this.discountAmount = discountRate;
         this.minQuanitity = minQuantity;
     }
     @Override
-    public final double getDiscountAmount() {
-    return discountAmount;
+    public final double getDiscountAmount(double productRetailPrice, int qty) {
+        double discount = 0;
+        
+        if( qty >= minQuanitity) {
+            discount = productRetailPrice * qty * discountRate;
+        }
+        return discount;
     }
 
     @Override

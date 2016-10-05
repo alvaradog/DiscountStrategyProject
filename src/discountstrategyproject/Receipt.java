@@ -4,9 +4,10 @@ package discountstrategyproject;
 public class Receipt {
     Customer customer;
     PersistenceStrategy db;
-    LineItem [] lineItems = {
-        new LineItem("null","null",0,0,0)
-    };
+//    LineItem [] lineItems = {
+//        new LineItem("null","null",0,0,0)
+//    };
+    LineItem lineItem;
 
     public Receipt(String custId, PersistenceStrategy db) {
         this.db = db;
@@ -18,8 +19,7 @@ public class Receipt {
     }
     
     public final void addLineItem(String productId, int quantity){
-        String [] temp = new String [lineItems.length + 1];
-        System.arraycopy(lineItems, 0, temp, 0, lineItems.length);
-        temp[temp.length-1]= "";
+        LineItem item = new LineItem(db, productId, quantity);
+
     }
 }

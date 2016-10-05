@@ -1,7 +1,7 @@
 
 package discountstrategyproject;
 
-public class FakeDatabase implements PersistenceStrategy {
+public class ArrayDatabase implements PersistenceStrategy {
     Customer [] customers = {
         new Customer ("Joe","Smith","C100"),
         new Customer ("Samantha","Davis","C101"),
@@ -15,11 +15,15 @@ public class FakeDatabase implements PersistenceStrategy {
         for (Customer c: customers){
             if (custId.equals(c.getCustId())){
                 customer = c;
-                System.out.println(customer.toString());
+                /*
+                The code commented out below, will just print out the info for
+                the customer who id matches the startup customer id
+                */
+//                System.out.println(customer.toString());
                 break;
             }
         }
-        return null;
+        return customer;
     }
     
     /*(Discount explanation)
@@ -30,21 +34,27 @@ public class FakeDatabase implements PersistenceStrategy {
     */    
     Product [] products = {
         new Product ("Watch","P1000",39.99, new NoDiscount()),
-        new Product ("Dress Shirt","P1001",19.99, new QuantityDiscount(19.99, 5, 0.30)),
-        new Product ("Womens Pants","P1050",49.99, new PercentDiscount(49.99, 0.10)),
-        new Product ("Snacks","P3500",6.99, new PercentDiscount(6.99, 0.05)),
-        new Product ("Belt","P1556",15.99, new QuantityDiscount(15.99, 2, 0.50)),
+        new Product ("Dress Shirt","P1001",19.99, new QuantityDiscount(5, .1)),
+        new Product ("Womens Pants","P1050",49.99, new PercentDiscount(.2)),
+        new Product ("Snacks","P3500",6.99, new PercentDiscount(.15)),
+        new Product ("Belt","P1556",15.99, new QuantityDiscount(2, 0.50)),
     };
     
+    @Override
     public final Product findProductById(String productId){
         Product product = null;
         for (Product p: products){
             if (productId.equals(p.getProductId())){
                 product = p;
                 product.toString();
+                /*
+                The code commented out below, will just print out the info for
+                the product who id matches the startup product id
+                */
+//                System.out.println(product.toString());
                 break;
             }
         }
-        return null;
+        return product;
     }
 }
