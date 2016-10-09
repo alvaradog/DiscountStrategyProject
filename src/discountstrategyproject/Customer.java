@@ -20,33 +20,28 @@ public class Customer {
         this.custId = custId;
     }
 
-    public String getLastName() {
+    public final String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public final void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public String getFirstName() {
+    public final String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public final void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getCustId() {
+    public final String getCustId() {
         return custId;
     }
 
-    public void setCustId(String custId) {
+    public final void setCustId(String custId) {
         this.custId = custId;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" + "lastName=" + lastName + ", firstName=" + firstName + ", custId=" + custId + '}';
     }
     
     

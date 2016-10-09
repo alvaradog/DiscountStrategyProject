@@ -2,12 +2,11 @@
 package discountstrategyproject;
 
 public class Receipt {
-    Customer customer;
-    PersistenceStrategy db;
+    private Customer customer;
+    private PersistenceStrategy db;
 //    LineItem [] lineItems = {
-//        new LineItem("null","null",0,0,0)
+//        new LineItem()
 //    };
-    LineItem lineItem;
 
     public Receipt(String custId, PersistenceStrategy db) {
         this.db = db;

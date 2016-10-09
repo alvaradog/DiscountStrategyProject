@@ -6,7 +6,7 @@ public class Product {
     private String productId;
     private double productRetailPrice;
     private double discountAmount=0;
-    DiscountStrategy discount;
+    private DiscountStrategy discount;
     
 
     public Product(String productName, String productId,

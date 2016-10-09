@@ -2,8 +2,8 @@
 package discountstrategyproject;
 
 public class LineItem {
-    Product product;
-    PersistenceStrategy db;
+    private Product product;
+    private PersistenceStrategy db;
     private int qty;
 
     public LineItem(PersistenceStrategy db, String prodId, int qty) {

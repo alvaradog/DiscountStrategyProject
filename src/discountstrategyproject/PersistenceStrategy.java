@@ -3,7 +3,7 @@ package discountstrategyproject;
 
 public interface PersistenceStrategy {
 
-    Customer findCustomerById(String custId);
-    Product findProductById(String productId);
+    public abstract Customer findCustomerById(String custId);
+    public abstract Product findProductById(String productId);
     
 }

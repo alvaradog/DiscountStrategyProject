@@ -19,7 +19,7 @@ public class ArrayDatabase implements PersistenceStrategy {
                 The code commented out below, will just print out the info for
                 the customer who id matches the startup customer id
                 */
-//                System.out.println(customer.toString());
+//                customer.toString();
                 break;
             }
         }
@@ -46,12 +46,11 @@ public class ArrayDatabase implements PersistenceStrategy {
         for (Product p: products){
             if (productId.equals(p.getProductId())){
                 product = p;
-                product.toString();
                 /*
                 The code commented out below, will just print out the info for
                 the product who id matches the startup product id
                 */
-//                System.out.println(product.toString());
+//                product.toString();
                 break;
             }
         }
