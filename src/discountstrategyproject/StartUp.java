@@ -8,11 +8,12 @@ public class StartUp {
         OutputStrategy consoleOutput = new ConsoleOutput();
         OutputStrategy guiOutput = new GUIOutput();
         
-        register.createNewPurchase("C103", db , consoleOutput);
-        register.addProductToPurchase("P1000",1);
+        register.createNewPurchase("C103", db , guiOutput);
+//        register.addProductToPurchase("P1000",1);
 //        register.addProductToPurchase("P1001",10);
 //        register.addProductToPurchase("P1556", 2);
-//        register.endPurchase();
+        register.endPurchase();
+        
     }
     
 }

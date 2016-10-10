@@ -15,6 +15,7 @@ public class Register {
     }
 
     public final void endPurchase() {
+        receipt.outputReceipt(output);
     }
     
 }

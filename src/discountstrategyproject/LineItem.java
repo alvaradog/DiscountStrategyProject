@@ -18,7 +18,7 @@ public class LineItem {
         return product;
     }
     
-    public String toString() {
+    public final String toString() {
         double price = product.getProductRetailPrice();
         double discount = product.getDiscountAmount(qty);
         return product.getProductId() + " " + product.getProductName()
@@ -27,7 +27,7 @@ public class LineItem {
     }
     
     public static void main(String[] args) {
-        LineItem item = new LineItem(new ArrayDatabase(),"P1000",2);
+        LineItem item = new LineItem(new ArrayDatabase(),"P1556",2);
         System.out.println(item.toString());
     }
     
