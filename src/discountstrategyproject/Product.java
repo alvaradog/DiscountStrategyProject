@@ -1,13 +1,13 @@
-
 package discountstrategyproject;
 
 public class Product {
+
     private String productName;
     private String productId;
     private double productRetailPrice;
-    private double discountAmount=0;
+    private double discountAmount;
+    private double priceWithDiscount;
     private DiscountStrategy discount;
-    
 
     public Product(String productName, String productId,
             double productRetailPrice, DiscountStrategy discount) {
@@ -15,7 +15,7 @@ public class Product {
         this.productId = productId;
         this.productRetailPrice = productRetailPrice;
         this.discount = discount;
-    }       
+    }
 
     public final String getProductName() {
         return productName;
@@ -40,14 +40,18 @@ public class Product {
     public final void setProductRetailPrice(double productRetailPrice) {
         this.productRetailPrice = productRetailPrice;
     }
-    
-    public final double getDiscountAmount(int qty){
-        return discountAmount = discount.getDiscountAmount(productRetailPrice, qty  );        
-    }
 
     @Override
     public String toString() {
-        return "Product{" + "productName=" + productName + ", productId=" + productId + ", productRetailPrice=" + productRetailPrice + ", discount=" + discount + '}';
+        return "Product{" + "productName=" + productName + ", productId=" + productId + ", productRetailPrice=" + productRetailPrice + ", discountAmount=" + discountAmount + ", priceWithDiscount=" + priceWithDiscount + ", discount=" + discount + '}';
     }
-    
+
+    public final double getDiscountAmount(int qty) {
+        return discountAmount = discount.getDiscountAmount(productRetailPrice, qty);
+    }
+
+    public final double getPriceWithDiscount() {
+        return priceWithDiscount = productRetailPrice - discountAmount;
+    }
+
 }

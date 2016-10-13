@@ -1,24 +1,29 @@
-
 package discountstrategyproject;
+
+import java.util.ArrayList;
 
 public class ConsoleOutput implements OutputStrategy {
 
     @Override
-    public final void outputBody(LineItem item) {
-        System.out.println(item+"\n");
+    public final void outputHeader(String firstName, String lastName, String custId, int transactionNumber) {
+        System.out.println(String.format("%-10s", KOHLS_HEADING)
+                + "\n\n\n" + firstName + " " + lastName + "\n"
+                + "Customer ID: " + custId + "\n" + "Transaction Number : " + transactionNumber);
     }
+
+    @Override
+    public final void outputBody(ArrayList<LineItem> lineItems) {
+        System.out.println("");
+        for (LineItem i: lineItems){
+            System.out.println(i);
+        };
+    }    
 
     @Override
     public final void outputFooter(double totalBeforeTax, double tax, double totalAfterTax) {
-        System.out.println(totalBeforeTax+": \n" + tax + ": \n" 
-                + totalAfterTax + ": ");
+        System.out.println("");
+        System.out.printf("Total: $%.2f\n" ,totalBeforeTax);
+        System.out.printf("Tax: $%.2f\n" ,tax);
+        System.out.printf("Total with Tax: $%.2f\n" ,totalAfterTax);
     }
-
-    @Override
-    public void outputHeader(String firstName, String lastName, String custId, int transactionNumber) {
-        System.out.println(firstName + " " + lastName);
-        System.out.println("Customer ID: " + custId);
-        System.out.println("Transaction Number : " + transactionNumber);
-    }
-    
 }

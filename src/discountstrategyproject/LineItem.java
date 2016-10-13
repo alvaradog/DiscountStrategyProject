@@ -1,4 +1,3 @@
-
 package discountstrategyproject;
 
 public class LineItem {
@@ -10,25 +9,28 @@ public class LineItem {
         this.db = db;
         product = db.findProductById(prodId);
         this.qty = qty;
+        product.getDiscountAmount(qty);
     }
 
-    
-    public final Product findProductById(PersistenceStrategy db,String productId){
+    LineItem(String product_Name, String product_ID, double retailPrice,
+            double discountedPrice, int qty) {
+    }
+
+    public final Product findProductById(PersistenceStrategy db, String productId) {
         db.findProductById(productId);
         return product;
     }
-    
-    public final String toString() {
-        double price = product.getProductRetailPrice();
-        double discount = product.getDiscountAmount(qty);
-        return product.getProductId() + " " + product.getProductName()
-                + " " + price + " "
-                + (price * qty) + " " + discount;
+
+    public final Product getProduct() {
+        return product;
     }
-    
-    public static void main(String[] args) {
-        LineItem item = new LineItem(new ArrayDatabase(),"P1556",2);
-        System.out.println(item.toString());
+
+    public final void setProduct(Product product) {
+        this.product = product;
     }
-    
+
+    @Override
+    public String toString() {
+        return "LineItem{" + "product=" + product + ", qty=" + qty + '}';
+    }
 }
