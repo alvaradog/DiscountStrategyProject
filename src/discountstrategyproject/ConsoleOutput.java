@@ -13,9 +13,13 @@ public class ConsoleOutput implements OutputStrategy {
 
     @Override
     public final void outputBody(ArrayList<LineItem> lineItems) {
-        System.out.println("");
+        System.out.println("\nProduct Name    ProductID  Price   QTY Discounted Price");
         for (LineItem i: lineItems){
-            System.out.println(i);
+            System.out.printf(i.getProduct().getProductName()+"\t"+
+                    i.getProduct().getProductId()+"\t"+
+                    i.getProduct().getProductRetailPrice()+"\t"+
+                    i.getQty()+ "\t"+
+                    "%.2f\n",i.getProduct().getPriceWithDiscount());
         };
     }    
 

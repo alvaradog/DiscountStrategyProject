@@ -29,11 +29,12 @@ public class Receipt {
     public final void addLineItem(String productId, int quantity) {
         item = new LineItem(db, productId, quantity);
         runningTotal = runningTotal + item.getProduct().getPriceWithDiscount();
-        lineItems.add(new LineItem(item.getProduct().getProductName(),
-                item.getProduct().getProductId(),
-                item.getProduct().getProductRetailPrice(),
-                item.getProduct().getPriceWithDiscount(),
-                quantity));
+        lineItems.add(item);
+//        lineItems.add(new LineItem(item.getProduct().getProductName(),
+//                item.getProduct().getProductId(),
+//                item.getProduct().getProductRetailPrice(),
+//                item.getProduct().getPriceWithDiscount(),
+//                quantity));
 //        LineItem[] temp = {new LineItem(tempName, tempId, tempRetailPrice, tempDiscountedPrice, quantity)};
 //        System.arraycopy(lineItems, 0, temp, 0, lineItems.length);
 //        temp[temp.length-1]=item;

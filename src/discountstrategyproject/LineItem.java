@@ -33,4 +33,9 @@ public class LineItem {
     public String toString() {
         return "LineItem{" + "product=" + product + ", qty=" + qty + '}';
     }
+
+    public int getQty() {
+        return qty;
+    }
+    
 }
