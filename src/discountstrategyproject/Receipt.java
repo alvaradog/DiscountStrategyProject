@@ -12,8 +12,7 @@ public class Receipt {
     private double runningTotal;
     private final double salesTax = 0.056;
     private double totalWithTax;
-    private LineItem item;
-//    LineItem[] lineItems = {};
+//    LineItem [] lineItems = {};
     ArrayList<LineItem> lineItems = new ArrayList<LineItem>();
 
     public Receipt(String custId, PersistenceStrategy db) {
@@ -27,29 +26,28 @@ public class Receipt {
     }
 
     public final void addLineItem(String productId, int quantity) {
-        item = new LineItem(db, productId, quantity);
+        LineItem item = new LineItem(db, productId, quantity);
         runningTotal = runningTotal + item.getProduct().getPriceWithDiscount();
         lineItems.add(item);
-//        lineItems.add(new LineItem(item.getProduct().getProductName(),
-//                item.getProduct().getProductId(),
-//                item.getProduct().getProductRetailPrice(),
-//                item.getProduct().getPriceWithDiscount(),
-//                quantity));
-//        LineItem[] temp = {new LineItem(tempName, tempId, tempRetailPrice, tempDiscountedPrice, quantity)};
+//        LineItem temp [] = {new LineItem(item.getProduct().getProductName(),
+//            item.getProduct().getProductId(),
+//            item.getProduct().getProductRetailPrice(),
+//            item.getProduct().getPriceWithDiscount(),
+//            quantity)};
 //        System.arraycopy(lineItems, 0, temp, 0, lineItems.length);
-//        temp[temp.length-1]=item;
-//        lineItems[]=temp[];
-//        temp[] = null;
-
+//        temp[temp.length - 1] = item;
+//        lineItems [] = temp [];
+//        lineItems = temp.clone();
+//        temp = null ;
     }
 
-    public void outputReceipt(OutputStrategy output) {
+    public final void outputReceipt(OutputStrategy output) {
         this.output = output;
         output.outputHeader(customer.getFirstName(), customer.getLastName(),
                 customer.getCustId(), transactionNumber);
         totalWithTax = (runningTotal * salesTax) + runningTotal;
         output.outputBody(lineItems);
-        double tax = salesTax*runningTotal;
+        double tax = salesTax * runningTotal;
         output.outputFooter(runningTotal, tax, totalWithTax);
     }
 }

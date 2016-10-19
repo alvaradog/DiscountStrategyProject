@@ -14,7 +14,7 @@ public class GUIOutput implements OutputStrategy {
     }
 
     @Override
-    public void outputBody(ArrayList<LineItem> lineItems) {
+    public void outputBody(ArrayList <LineItem> lineItems) {
         JOptionPane.showMessageDialog(null, LINE_ITEM_HEADER);
         for (LineItem i : lineItems) {
             JOptionPane.showMessageDialog(null, String.format(i.getProduct().getProductName()

@@ -9,6 +9,8 @@ public interface OutputStrategy {
 
     public abstract void outputHeader(String firstName, String lastName, String custId, int transactionNumber);
 
+//    public abstract void outputBody(LineItem [] lineItems);
+    
     public abstract void outputBody(ArrayList<LineItem> lineItems);
 
     public abstract void outputFooter(double totalBeforeTax, double tax,
